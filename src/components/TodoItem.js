@@ -1,15 +1,15 @@
 import React from 'react';
-
+import "./TodoItem.css"
 const TodoItem = ({ task, toggleTask, deleteTask }) => (
-  <li >
-    <div >
-      <label >
+  <li className="todo-item">
+    <div className="todo-item-content">
+      <label className="switch">
         <input type="checkbox" checked={task.completed} onChange={toggleTask} />
-        <span ></span>
+        <span className="slider round"></span>
       </label>
-      <span >{task.text}</span>
+      <span className="task-text">{task.text}</span>
     </div>
-    <button onClick={deleteTask}>Delete</button>
+    <button className="delete-btn" onClick={deleteTask}>Delete</button>
   </li>
 );
 
