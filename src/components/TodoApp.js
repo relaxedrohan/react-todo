@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AddTodo from "./AddTodo";
 import Filter from "./Filter";
 import TodoList from "./TodoList";
+import './TodoApp.css';
 
 export default function TodoApp() {
     const [tasks, setTasks] = useState(() => JSON.parse(localStorage.getItem('tasks')) || []);
@@ -27,8 +28,8 @@ export default function TodoApp() {
 
 
     return(
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1 style={{ color: '#333' }}>To-Do List</h1>
+    <div className="todo-app">
+      <h1 className="todo-header">To-Do List</h1>
       <AddTodo newTask={newTask} setNewTask={setNewTask} addTask={addTask} />
       <Filter setFilter={setFilter} />
       <TodoList tasks={filteredTasks} toggleTask={toggleTask} deleteTask={deleteTask} />
