@@ -4,6 +4,12 @@ import Filter from "./Filter";
 import TodoList from "./TodoList";
 import './TodoApp.css';
 
+/**
+ * 
+ * TodoApp (Main Component)
+ * Manages state for tasks, filters, and new task input.
+ * Handles adding, toggling, and deleting tasks.
+ */
 export default function TodoApp() {
     const [tasks, setTasks] = useState(() => JSON.parse(localStorage.getItem('tasks')) || []);
     const [filter, setFilter] = useState('all');

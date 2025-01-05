@@ -1,5 +1,11 @@
 import React from 'react';
 import "./TodoItem.css"
+
+/**
+ * TodoItem (Single Task)
+ * Represents a single to-do item.
+ * Handles toggle and delete actions.
+ */
 const TodoItem = ({ task, toggleTask, deleteTask }) => (
   <li className="todo-item">
     <div className="todo-item-content">

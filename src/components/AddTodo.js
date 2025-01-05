@@ -1,6 +1,11 @@
 import React from 'react';
 import './AddTodo.css';
 
+/**
+ * AddTodo (Add New Task)
+ * Provides an input box and button to add a new task.
+ * Lifts new task data to TodoApp through props.
+ */
 const AddTodo = ({ newTask, setNewTask, addTask }) => {
   return (
     <div className="add-todo">
