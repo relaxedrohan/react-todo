@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddTodo from "./AddTodo";
 import Filter from "./Filter";
 import TodoList from "./TodoList";
 
 export default function TodoApp() {
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState(() => JSON.parse(localStorage.getItem('tasks')) || []);
     const [filter, setFilter] = useState('all');
     const [newTask, setNewTask] = useState('');
+
+    useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
     const addTask = () => {
         if (!newTask.trim()) return;
         setTasks([...tasks, { text: newTask, completed: false }]);
@@ -21,7 +25,7 @@ export default function TodoApp() {
     };
     const filteredTasks = tasks.filter((task) =>filter === 'completed' ? task.completed : filter === 'pending' ? !task.completed : true);
 
-    
+
     return(
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1 style={{ color: '#333' }}>To-Do List</h1>
